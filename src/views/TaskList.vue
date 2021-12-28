@@ -1,4 +1,5 @@
 <template>
+    <app-TaskTable></app-TaskTable>
     
 </template>
 
