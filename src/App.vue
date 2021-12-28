@@ -1,4 +1,6 @@
 <template>
+  <!-- <router-view></router-view> -->
+  <app-AddTask></app-AddTask>
   
 </template>
 
