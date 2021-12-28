@@ -8,8 +8,12 @@
             </tr>
         </thead>
         <tbody>
-            <td>adfdsf</td>
-            <td>adfdsf</td>
+            
+            <tr>
+                <td>adfdsf</td>
+                <td>adfdsf</td> 
+            </tr>
+            
         </tbody>
     </table>
 </template>
