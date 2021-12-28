@@ -1,6 +1,9 @@
 <template>
-    <app-AddTaskForm></app-AddTaskForm>
-    
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <app-AddTaskForm></app-AddTaskForm>
+        </div>
+    </div>
 </template>
 
 <script>

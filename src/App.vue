@@ -3,13 +3,14 @@
   <div>
     <app-navbar></app-navbar>
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="mt-5 col-6 ">
+      <!-- <div class="row justify-content-center"> -->
+        
+        <div class="mt-5">
           
             <Router-view></Router-view>
           
+        
         </div>
-      </div>
     </div>
   </div>
   
