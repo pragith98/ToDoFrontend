@@ -9,7 +9,7 @@
                     <label class="form-label mt-4">New Task</label>
                     <ValidationProvider name="Task" rules="required" v-slot="{errors}">
                         <textarea v-model="task" class="form-control" id="exampleTextarea" rows="3" placeholder="Enter your Task"></textarea>
-                        <small id="emailHelp" class="form-text ">{{errors[0]}}</small>
+                        <small class="form-text ">{{errors[0]}}</small>
                     </ValidationProvider>
                 </div>
                 
