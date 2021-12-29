@@ -16,29 +16,34 @@
             </thead>
             <tbody>
                 
-                <tr>
-                    <td>1</td>
-                    <td>Go To Schoolsdfsdf sdfasdfsd</td>
+                <tr v-for="task in tasks" :key="task.id">
+                    <td>{{ task.id }}</td>
+                    <td>{{task.task}}</td>
                     <td align="right">
-                        <!-- <button type="button" class="btn btn-outline-warning btn-sm">Completed</button> -->
-                        <button type="button" class="btn btn-outline-success btn-sm" style="width:80px">New</button>
+                        <button type="button" class="btn btn-outline-warning btn-sm">Completed</button>
+                        <!-- <button type="button" class="btn btn-outline-success btn-sm" style="width:80px">New</button> -->
                         <router-link to='/UpdateTask' class="btn btn-success mx-2 btn-sm">Update</router-link>
                         <button type="button" class="btn btn-danger btn-sm">Delete</button>
                     </td>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Go To Schoolsdfsdf sdfasdfsd</td>
-                    <td align="right">
-                        <button type="button" class="btn btn-outline-warning btn-sm">Completed</button>
-                        <!-- <button type="button" class="btn btn-outline-success btn-sm" style="width:80px">New</button> -->
-                        <button type="button" class="btn btn-success mx-2 btn-sm">Update</button>
-                        <button type="button" class="btn btn-danger btn-sm">Delete</button>
-                    </td>
-                </tr>
+                
                 
             </tbody>
         </table> 
     </div>
     
 </template>
+
+<script>
+
+    export default{
+        data:()=>({
+            tasks:[]
+        }),
+
+        created(){
+            this.axios.get("http://localhost:8001/api/allTask").then(Response=>(this.tasks=Response.data.allTask))
+        }
+    }
+
+</script>
