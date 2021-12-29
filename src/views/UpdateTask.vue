@@ -1,17 +1,17 @@
 <template>
     <div class="row justify-content-center">
         <div class="col-lg-6 ">
-            <app-AddTaskForm></app-AddTaskForm>
+            <app-UpdateTaskForm></app-UpdateTaskForm>
         </div>
     </div>
 </template>
 
 <script>
-    import AddTaskForm from '../components/AddTaskForm.vue'
+    import UpdateTaskForm from '../components/UpdateTaskForm.vue'
 
     export default{
         components:{
-            "app-AddTaskForm":AddTaskForm
+            "app-UpdateTaskForm":UpdateTaskForm
         }
     }
 
