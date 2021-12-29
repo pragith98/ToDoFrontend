@@ -2,13 +2,15 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import AddTask from '../views/AddTask'
 import TaskList from '../views/TaskList'
+import UpdateTask from '../views/UpdateTask'
 
 Vue.use(VueRouter)
 
 const routes = [
   {path: '/AddTask', component: AddTask},
   {path: '/', component: TaskList},
-  {path: '/TaskList', component: TaskList}
+  {path: '/TaskList', component: TaskList},
+  {path: '/UpdateTask', component: UpdateTask}
 ]
 
 const router = new VueRouter({
