@@ -2,7 +2,7 @@
     <div>
         <div>
            <h2 class="float-start">Task List</h2> 
-           <button type="button" class="btn btn-primary float-end mb-2">Add New</button>
+           <router-link to='/AddTask' class="btn btn-primary float-end mb-2">Add New</router-link>
             
         </div>
         
