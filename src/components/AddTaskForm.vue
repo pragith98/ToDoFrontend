@@ -1,7 +1,7 @@
 <template>
     <form>
         <fieldset>
-            <legend>Add Task</legend>
+            <h2>Add Task</h2>
             
             <div class="form-group">
                 <label class="form-label mt-4">New Task</label>
