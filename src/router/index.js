@@ -10,7 +10,7 @@ const routes = [
   {path: '/AddTask', component: AddTask},
   {path: '/', component: TaskList},
   {path: '/TaskList', component: TaskList},
-  {path: '/UpdateTask', component: UpdateTask}
+  {path: '/UpdateTask/:id', component: UpdateTask}
 ]
 
 const router = new VueRouter({

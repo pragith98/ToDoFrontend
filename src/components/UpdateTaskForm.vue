@@ -24,13 +24,25 @@
 
 <script>
     export default{
+
+        created(){
+            this.getTask();
+        },
+
         data:()=>({
-            task:""
+            tasks:[]
         }),
         
         methods:{
             onSubmit(){
                 console.log(this.task)
+            },
+
+            getTask(){
+                var id=this.$route.params.id;
+                this.axios.get("http://localhost:8001/api/getTask/"+id).then(Response=>(this.tasks=Response.data.allTask))
+                console.log(id);
+
             }
         }
     }
