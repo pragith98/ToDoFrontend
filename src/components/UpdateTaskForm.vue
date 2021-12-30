@@ -7,7 +7,7 @@
                 <div class="form-group">
                     <label class="form-label mt-4">Update Task</label>
                     <ValidationProvider name="Task" rules="required" v-slot="{errors}">
-                        <textarea v-model="task" class="form-control" id="exampleTextarea" rows="3" placeholder="Enter your Task"></textarea>
+                        <textarea v-model="tasks.task" class="form-control" id="exampleTextarea" rows="3" placeholder="Enter your Task"></textarea>
                         <small class="form-text">{{errors[0]}}</small>
                     </ValidationProvider>
                 </div>
@@ -30,19 +30,21 @@
         },
 
         data:()=>({
-            tasks:[]
+            tasks:{
+                task:""
+            }
         }),
         
         methods:{
             onSubmit(){
-                console.log(this.task)
+                
+                
             },
 
             getTask(){
                 var id=this.$route.params.id;
-                this.axios.get("http://localhost:8001/api/getTask/"+id).then(Response=>(this.tasks=Response.data.allTask))
-                console.log(id);
-
+                this.axios.get("http://localhost:8001/api/getTask/"+id).then(Response=>(this.tasks=Response.data.task))
+                
             }
         }
     }
