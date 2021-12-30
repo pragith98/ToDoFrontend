@@ -36,14 +36,23 @@
         }),
         
         methods:{
-            onSubmit(){
-                
-                
-            },
+            
 
             getTask(){
                 var id=this.$route.params.id;
+                
                 this.axios.get("http://localhost:8001/api/getTask/"+id).then(Response=>(this.tasks=Response.data.task))
+                
+            },
+
+            onSubmit(){
+                var path=this.$router;
+                var id=this.$route.params.id;
+                this.axios.put('http://localhost:8001/api/updateTask/'+id,this.tasks).then(function(Response){
+                    console.log(Response);
+                    path.push('/TaskList')
+                })
+                
                 
             }
         }
