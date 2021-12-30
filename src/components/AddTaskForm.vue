@@ -33,8 +33,16 @@
 
         methods:{
             onSubmit(){
-                console.log(this.task);
-                this.$router.push('/TaskList');
+                // console.log(this.task);
+                var path=this.$router;
+             
+                this.axios.post("http://localhost:8001/api/store",{task:this.task}).then(function(Response){
+                    
+                    console.log(Response);
+                    path.push('/TaskList')
+                });
+            
+                
             }
         }
     }
