@@ -20,8 +20,9 @@
                     <td>{{ task.id }}</td>
                     <td>{{task.task}}</td>
                     <td align="right">
-                        <button type="button" class="btn btn-outline-warning btn-sm">Completed</button>
-                        <!-- <button type="button" class="btn btn-outline-success btn-sm" style="width:80px">New</button> -->
+                        
+                        <button v-if="task.status == 'completed'" type="button" class="btn btn-outline-warning btn-sm">Completed</button>
+                        <button v-else type="button" class="btn btn-outline-success btn-sm" style="width:80px">New</button>
                         <router-link :to="'/UpdateTask/'+task.id" class="btn btn-success mx-2 btn-sm">Update</router-link>
                         <button type="button" class="btn btn-danger btn-sm" @click="deleteTask(task.id)" >Delete</button>
                     </td>
