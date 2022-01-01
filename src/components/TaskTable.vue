@@ -21,8 +21,8 @@
                     <td>{{task.task}}</td>
                     <td align="right">
                         
-                        <button v-if="task.status == 'completed'" type="button" class="btn btn-outline-warning btn-sm">Completed</button>
-                        <button v-else type="button" class="btn btn-outline-success btn-sm" style="width:80px">New</button>
+                        <button v-if="task.status == 'completed'" @click="updateStatus(task.id,'new')" type="button" class="btn btn-outline-warning btn-sm">Completed</button>
+                        <button v-else @click="updateStatus(task.id,'completed')" type="button" class="btn btn-outline-success btn-sm" style="width:80px">New</button>
                         <router-link :to="'/UpdateTask/'+task.id" class="btn btn-success mx-2 btn-sm">Update</router-link>
                         <button type="button" class="btn btn-danger btn-sm" @click="deleteTask(task.id)" >Delete</button>
                     </td>
@@ -30,21 +30,30 @@
                 
                 
             </tbody>
-        </table> 
+        </table>
     </div>
     
 </template>
 
 <script>
-
+        
     export default{
+        
+
+        props: ['stuffProp'],
         data:()=>({
-            tasks:[]
+            tasks:[],
+            
+            newStatus:{
+                status:''
+            }
         }),
 
         created(){
             this.axios.get("http://localhost:8001/api/allTask").then(Response=>(this.tasks=Response.data.allTask))
         },
+
+        
 
         methods:{
             deleteTask(id){
@@ -59,14 +68,29 @@
                     });
 
                     taskval.splice(position,1);
-                });
+                });  
+            },
 
+            reCreate(response){
+                console.log(response);
+                this.axios.get("http://localhost:8001/api/allTask").then(Response=>(this.tasks=Response.data.allTask))
+                
+            },
+
+            updateStatus(id,status){
+                
+                this.newStatus.status=status;
                 
 
-                
-                
-
+                this.axios.put('http://localhost:8001/api/statusUpdate/'+id,this.newStatus).then(Response=>{this.reCreate(Response)})
+                   
             }
+
+
+
+            
+
+
         }
         
     }
