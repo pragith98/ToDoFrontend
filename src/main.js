@@ -8,10 +8,15 @@ import {ValidationObserver} from 'vee-validate';
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
+import '@morioh/v-msg/dist/msg.min.css';
+import Msg from '@morioh/v-msg';
+
 Vue.component('ValidationProvider',ValidationProvider)
 Vue.component('ValidationObserver',ValidationObserver)
 
 Vue.use(VueAxios, axios)
+
+Vue.use(Msg);
 
 Vue.config.productionTip = false
 
