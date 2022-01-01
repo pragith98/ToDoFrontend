@@ -22,6 +22,7 @@
             </fieldset>
         </form>
     </ValidationObserver>
+
 </template>
 
 <script>
@@ -35,15 +36,20 @@
             onSubmit(){
                 // console.log(this.task);
                 var path=this.$router;
+                var notification=this.$Msg;
+                var val=this.task;
              
                 this.axios.post("http://localhost:8001/api/store",{task:this.task}).then(function(Response){
                     
                     console.log(Response);
-                    path.push('/TaskList')
+                    path.push('/TaskList');
+                    notification.success(val+' Added Successful!', { position: 'top-right' });
                 });
             
                 
-            }
+            },
+
+            
         }
     }
 

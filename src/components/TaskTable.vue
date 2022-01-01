@@ -24,7 +24,7 @@
                         <button v-if="task.status == 'completed'" @click="updateStatus(task.id,'new')" type="button" class="btn btn-outline-warning btn-sm">Completed</button>
                         <button v-else @click="updateStatus(task.id,'completed')" type="button" class="btn btn-outline-success btn-sm" style="width:80px">New</button>
                         <router-link :to="'/UpdateTask/'+task.id" class="btn btn-success mx-2 btn-sm">Update</router-link>
-                        <button type="button" class="btn btn-danger btn-sm" @click="deleteTask(task.id)" >Delete</button>
+                        <button type="button" class="btn btn-danger btn-sm" @click="deleteTask(task.id,task.task)" >Delete</button>
                     </td>
                 </tr>
                 
@@ -56,8 +56,9 @@
         
 
         methods:{
-            deleteTask(id){
+            deleteTask(id,task){
                 var taskval=this.tasks;
+                var notification=this.$Msg;
 
                 console.log(id);
                 this.axios.delete("http://localhost:8001/api/deleteTask/"+id).then(function(Response){
@@ -68,6 +69,8 @@
                     });
 
                     taskval.splice(position,1);
+
+                    notification.warning(task+' Delete Successful!', { position: 'top-right' });
                 });  
             },
 

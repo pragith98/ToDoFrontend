@@ -48,9 +48,13 @@
             onSubmit(){
                 var path=this.$router;
                 var id=this.$route.params.id;
+                var notification=this.$Msg;
+                var val=this.task;
+
                 this.axios.put('http://localhost:8001/api/updateTask/'+id,this.tasks).then(function(Response){
                     console.log(Response);
-                    path.push('/TaskList')
+                    path.push('/TaskList');
+                    notification.info(val+' Updated Successful!', { position: 'top-right' });
                 })
                 
                 
