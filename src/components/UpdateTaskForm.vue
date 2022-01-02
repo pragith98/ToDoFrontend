@@ -41,7 +41,7 @@
             getTask(){
                 var id=this.$route.params.id;
                 
-                this.axios.get("http://localhost:8001/api/getTask/"+id).then(Response=>(this.tasks=Response.data.task))
+                this.axios.get("http://todoback.dazkon.com/api/getTask/"+id).then(Response=>(this.tasks=Response.data.task))
                 
             },
 
@@ -51,7 +51,7 @@
                 var notification=this.$Msg;
                 var val=this.task;
 
-                this.axios.put('http://localhost:8001/api/updateTask/'+id,this.tasks).then(function(Response){
+                this.axios.put('http://todoback.dazkon.com/api/updateTask/'+id,this.tasks).then(function(Response){
                     console.log(Response);
                     path.push('/TaskList');
                     notification.info(val+' Updated Successful!', { position: 'top-right' });

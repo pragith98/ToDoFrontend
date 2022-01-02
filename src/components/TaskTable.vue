@@ -50,7 +50,7 @@
         }),
 
         created(){
-            this.axios.get("http://localhost:8001/api/allTask").then(Response=>(this.tasks=Response.data.allTask))
+            this.axios.get("http://todoback.dazkon.com/api/allTask").then(Response=>(this.tasks=Response.data.allTask))
         },
 
         
@@ -61,7 +61,7 @@
                 var notification=this.$Msg;
 
                 console.log(id);
-                this.axios.delete("http://localhost:8001/api/deleteTask/"+id).then(function(Response){
+                this.axios.delete("http://todoback.dazkon.com/api/deleteTask/"+id).then(function(Response){
                     console.log(Response);
                     
                     var position=taskval.findIndex(function(element){
@@ -76,7 +76,7 @@
 
             reCreate(response){
                 console.log(response);
-                this.axios.get("http://localhost:8001/api/allTask").then(Response=>(this.tasks=Response.data.allTask))
+                this.axios.get("http://todoback.dazkon.com/api/allTask").then(Response=>(this.tasks=Response.data.allTask))
                 
             },
 
@@ -85,7 +85,7 @@
                 this.newStatus.status=status;
                 
 
-                this.axios.put('http://localhost:8001/api/statusUpdate/'+id,this.newStatus).then(Response=>{this.reCreate(Response)})
+                this.axios.put('http://todoback.dazkon.com/api/statusUpdate/'+id,this.newStatus).then(Response=>{this.reCreate(Response)})
                    
             }
 

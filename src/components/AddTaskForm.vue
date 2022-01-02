@@ -39,7 +39,7 @@
                 var notification=this.$Msg;
                 var val=this.task;
              
-                this.axios.post("http://localhost:8001/api/store",{task:this.task}).then(function(Response){
+                this.axios.post("http://todoback.dazkon.com/api/store",{task:this.task}).then(function(Response){
                     
                     console.log(Response);
                     path.push('/TaskList');
